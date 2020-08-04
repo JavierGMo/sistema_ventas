@@ -1,16 +1,16 @@
 <?php include_once $_SERVER["DOCUMENT_ROOT"].'/sistemaventas/views/includes/header.php' ?>
 <body>
 <?php include_once $_SERVER["DOCUMENT_ROOT"].'/sistemaventas/views/includes/nav.php' ?>
-    <h1>Hola soy el inicio </h1>
-    <div class="contenedor-anuncios bg-success w-100 h-25 p-5">
-        <img src="<?php echo constant('URL') ?>/public/images/cuete.png" class="w-25 h-25" alt="Imagen de prueba para anuncios">
+    <div class="d-flex justify-content-center mt-3"><h1>Anuncios</h1></div>
+    <div class="contenedor-anuncios w-100 h-75 p-5">
+        <img src="<?php echo constant('URL') ?>/public/images/anuncio.jpg" class="w-100 h-25" alt="Imagen de prueba para anuncios">
     </div>
     <div class="contenedor-productos-scroll d-flex flex-column w-100 m-4">
         <div class="d-flex justify-content-center m-4 contenedor-titulo-producto">
             <h3>Productos</h3>
         </div>
         <!--#todos-los-productos-->
-
+        
         <div class="wrap">
             <div class="productos-car">
                 <div id="todos-los-productos" class="swiper-wrapper">

@@ -27,8 +27,15 @@ buttonInicioSesion.addEventListener('click', function(e){
             xhr.onreadystatechange = function() {
                 if (xhr.readyState>3 && xhr.status==200){
                     const jsonData = JSON.parse( xhr.responseText);
-                    console.log(jsonData);
-                    console.log(`DATA: ${typeof jsonData['data']}`);
+                    if(jsonData['ok']){
+                        window.location.replace("http://localhost/sistemaventas/");
+                    }else{
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Revisa tu informacion :('
+                        });
+                    }
                 }
             };
             xhr.send(params);

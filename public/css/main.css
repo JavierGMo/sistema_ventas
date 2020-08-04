@@ -28,7 +28,9 @@ p.trucate-ellipsis{
     margin: 0 auto;
     overflow: hidden;
 }
-
+.oculto{
+    display: none;
+}
 /* input[type="text"]:focus, input[type="password"]:focus{
     border: 1px solid #44bd32;
 } */
@@ -73,4 +75,10 @@ div.contenedor-inputs-login input:focus{
 
 .swiper-slide:nth-child(3n) {
 width: 40%;
+}
+/*Perfil de usuario*/
+ul.prefil-opciones-de-usuario > li{
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    padding: 0.1rem 1rem;
 }

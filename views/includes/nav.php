@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark contenedor-nav">
-    <a class="navbar-brand logo" href="home">Navbar</a>
+    <a class="navbar-brand logo" href="home">Logo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,6 +15,7 @@
             <li class="nav-item mb-sm-4">
                 <a class="" href="ayuda">Ayuda</a>
             </li>
+            <?php if(!isset($_SESSION["usuario"])): ?>
             <li class="nav-item mb-sm-4">
                 <a class="" href="sobrenosotros">Sobre nosotros</a>
             </li>
@@ -24,6 +25,15 @@
             <li class="nav-item mb-sm-4">
                 <a class="btn btn-light" href="registro">Registrarse</a>
             </li>
+            <?php endif ?>
+            <?php if(isset($_SESSION["usuario"])): ?>
+                <li class="nav-item mb-sm-4">
+                    <a class="btn btn-primary" href="usuario"><i class="fa fa-user"></i> Perfil</a>
+                </li>
+                <li class="nav-item mb-sm-4">
+                    <a id="cerrar-sesion" class="btn btn-light" href="http://localhost/sistemaventas/usuario/logOut"><i class="fa fa-times"></i> Cerrar Session</a>
+                </li>
+            <?php endif ?>
         </ul><!--menu de vistas-->
     </div>
 </nav><!--nav-->

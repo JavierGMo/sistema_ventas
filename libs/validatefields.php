@@ -10,7 +10,14 @@
         //Methods
         public function checkFields(array $fields = null):bool{
             $itsOk = false;
-            foreach($fields as $value) if(isset($value) && !empty($value)) $itsOk = true;
+            foreach($fields as $value){
+                if(isset($value) && !empty($value))$itsOk = true;
+                else{
+                    $itsOk = false;
+                    break;
+                }
+            }
+
             return $itsOk;
         }
         public function validatePassword():bool{

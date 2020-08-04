@@ -79,5 +79,38 @@
             }
             return $insertOk;   
         }
+        public function updatePass(array $passUpdate):bool{
+            $updateOK = false;
+            try {
+                $query = $this->db->connect()->prepare('UPDATE usuario SET contrasenia = ? WHERE nombredeusuario = ?');
+                if($query->execute($passUpdate)) $updateOK = true;
+            } catch (PDOException $th) {
+                //throw $th;
+            }
+
+
+            return $updateOK;
+        }
+        public function deleteAccount(array $confirmDel):bool{
+            $del = false;
+            try {
+                $query = $this->db->connect()->prepare('DELETE FROM usuario WHERE nombredeusuario = ? AND contrasenia = ?');
+                if($query->execute($confirmDel)) $del = true;
+            } catch (PDOException $th) {
+                //throw $th;
+            }
+            return $del;
+        }
+        public function updateUserPerfil(array $dataUpdate):bool{
+            $okUpdate = false;
+            
+            try {
+                $query = $this->db->connect()->prepare('UPDATE usuario SET nombre = ?, apellido = ?, refimagen = ? WHERE nombredeusuario = ?');
+                if($query->execute($dataUpdate)) $okUpdate = true;
+            } catch (PDOException $e) {
+                //throw $th;
+            }
+            return $okUpdate;
+        }
     }
 ?>

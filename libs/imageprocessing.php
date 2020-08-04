@@ -16,7 +16,7 @@
             }
             return false;   
         }
-        public function guardarImagenPerfil(array $dataArchivo, string $rutaIndex, string $userName):bool{
+        public function guardarImagenPerfil(array $dataArchivo, string $rutaIndex, string $userName, string $rutaUsuario):bool{
             $imgGuardada = false;
             $rutaOrigen = '';
             $refImg = '';
@@ -26,13 +26,18 @@
                 $rutaOrigen = $dataArchivo['tmp_name'];
                 $refImg = $dataArchivo['name'];
             }
-            $rutaDestino = $rutaIndex.'\\assets\\imgprofileusers\\'.$userName.'\\';
+            $rutaDestino = $rutaIndex.$rutaUsuario.$userName.'\\';
             if(!file_exists($rutaDestino)){
                 if(mkdir($rutaDestino)){
                     $rutaDestino .= $refImg;
                     if(move_uploaded_file($rutaOrigen,$rutaDestino)){
                         $imgGuardada = true;
                     } 
+                }
+            }else{
+                $rutaDestino .= $refImg;
+                if(move_uploaded_file($rutaOrigen,$rutaDestino)){
+                    $imgGuardada = true;
                 }
             }
             return $imgGuardada;

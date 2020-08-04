@@ -64,6 +64,17 @@
            return $dataJson;
         }
         
+        public function insertProduct(array $dataProducto):bool{
+            $insertOK = false;
+            try {
+                $query = $this->db->connect()->prepare('INSERT INTO `producto` (`idproducto`, `nombre`, `descripcion`, `refimagen`, `precio`) VALUES (NULL, ?, ?, ?, ?)');
+                if ($query->execute($dataProducto)) $insertOK = true;
+            } catch (PDOException $e) {
+                
+            }
+            return $insertOK;
+            
+        }
     
         public function getById($id){
            

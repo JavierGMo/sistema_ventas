@@ -30,7 +30,7 @@ dataProducts().then(function (res) {
                 <h4>${element['nombre']}</h4>
             </div>
             <div class="d-flex justify-content-center">
-                <img src="http://localhost/sistemaventas/public/images/cuete.png" class="w-25 h-25" alt="Imagen de prueba para anuncios">
+                <img src="http://localhost/sistemaventas/assets/imgproductos/${element['refimagen']}" class="w-25 h-25" alt="Imagen de prueba para anuncios">
             </div>
             <div class="descripcion-producto w-75 mt-4">
                 <p class="trucate-ellipsis">${element['descripcion']}</p>
