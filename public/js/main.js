@@ -37,7 +37,7 @@ dataProducts().then(function (res) {
             </div><!--Descripcion del producto, se trunca-->
             <div>
                 <p>$${element['precio']}</p>
-                <a href="producto" class="btn btn-success">Comprar</a>
+                <a href="producto/productoDetalle/${element['idproducto']}" class="btn btn-success">Comprar</a>
             </div><!--botones-->
         </div>
         `;

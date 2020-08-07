@@ -11,6 +11,7 @@
         }
     
         function render(){
+            echo '      ******render******** ';
             $this->view->render('sobrenosotros/sobrenosotros', 'Registro');
         }
     }

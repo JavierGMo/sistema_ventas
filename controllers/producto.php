@@ -12,8 +12,13 @@
             //echo "<p>Controlador Index</p>";
         }
     
-        function render(){
-            $this->view->render('producto/producto', 'Producto');
+        function render($param = null){
+            if($param){
+                //un error 
+                echo 'null';
+                $this->view->render('producto/producto', 'Producto');
+            }
+            
         }
         public function verProductosPorCategoria($param=null){
             echo $this->model->getAll();
@@ -44,6 +49,14 @@
                 }
             }
             echo json_encode($jsonRes);
+        }
+        public function productoDetalle(array $arrayParam = null):void{
+            if(!is_numeric($arrayParam[0])){
+                header('Location: http://localhost/sistemaventas/'.$arrayParam[0]);
+            }
+            $id = $arrayParam[0];
+            $data = $this->model->getProductById([$id]);
+            $this->view->render('producto/producto', 'Producto | '.$data['data']['nombre'], $data );
         }
         public function pruebaProducto(){
             echo 'Files';

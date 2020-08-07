@@ -2,7 +2,6 @@
 <body>
 <?php include_once $_SERVER["DOCUMENT_ROOT"].'/sistemaventas/views/includes/nav.php' ?>
     <h1>Sobre nosotros</h1>
-    
     <?php include_once $_SERVER["DOCUMENT_ROOT"].'/sistemaventas/views/includes/footer.php'; ?>
 </body>
 </html>

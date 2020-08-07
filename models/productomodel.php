@@ -76,8 +76,21 @@
             
         }
     
-        public function getById($id){
-           
+        public function getProductById(array $id):array{
+           $dataProduct = array('ok'=>1, 'data'=>null);
+            try {
+                $query = $this->db->connect()->prepare('SELECT * from producto WHERE idproducto=?');
+                if($query->execute($id)){
+                    $tempData = $query->fetch(PDO::FETCH_ASSOC);
+                    if(!$tempData) $tempData = null;
+                    $dataProduct['data'] = $tempData;
+                }
+            } catch (PDOException $e) {
+                //throw $th;
+            }
+
+
+           return $dataProduct;
         }
     
         public function update($item){
